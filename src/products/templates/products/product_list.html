@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h2 class="sub-header">Products</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+              	<thead>
+	                <tr>
+	                  <th>Id</th>
+	                  <th> Product Name</th>
+	                  <th>Price</th>
+	                </tr>
+              	</thead>
+              	{% for object in object_list %}
+              	<tbody>
+                	<tr>
+                  		<td>{{ object.id }}</td>
+                  		<td>{{ object.title }}</td>
+                  		<td>{{ object.price }}</td>
+                	</tr>
+                </tbody>	 
+                {% endfor %}	             	
+            </table>
+        </div>      			
+{% endblock %}
