@@ -9,10 +9,17 @@ from .models import Product
 
 class ProductListView(ListView):
 	model = Product
+	queryset = Product.objects.all()
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(ProductListView, self).get_context_data(*args, **kwargs)
 		return context
+
+	# def get_queryset(self, *args, **kwargs):
+	# 	product_pk = self.kwargs.get("pk")
+
+	# def post(self, request, *args, **kwargs):
+		
 
 
 

@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 urlpatterns = [
-	#url(r'^$', 'products.views.home', name='home'),
+	# url(r'^$', 'products.views.home', name='home'),
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^products/', include('products.urls')),
