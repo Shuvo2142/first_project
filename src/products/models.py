@@ -53,7 +53,15 @@ class Category(models.Model):
 	timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 
 	def __str__(self):
-		return self.title					
+		return self.title
+
+	def get_absolute_url(self):
+		return reverse("category_detail", kwargs={"pk": self.pk})	
+
+	# def get_absolute_url(self):
+	# 	return reverse("category_detail", kwargs={"slug": self.slug})	
+
+					
 
 
 # Product Images

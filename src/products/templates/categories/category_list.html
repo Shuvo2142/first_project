@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h2 class="sub-header">Categories</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+              	<thead>
+	                <tr>
+	                  <th>Id</th>
+	                  <th> Category Name</th>
+	                </tr>
+              	</thead>
+              	{% for object in object_list %}
+              	<tbody>
+                	<tr>
+                  		<td>{{ object.id }}</td>
+                  		<td><a href='{{ object.get_absolute_url }}'>{{ object.title }}</a></td>
+                	</tr>
+                </tbody>	 
+                {% endfor %}	             	
+            </table>
+        </div>      			
+{% endblock %}

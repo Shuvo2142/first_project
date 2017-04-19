@@ -4,16 +4,40 @@
 		"selected_items":
 		[
 			[
-				"Pr",
-				"ProductListView"
+				"Cre",
+				"CreateView"
+			],
+			[
+				"Product",
+				"ProductAddForm"
+			],
+			[
+				"Cate",
+				"CategoryAdmin"
+			],
+			[
+				"cate",
+				"Categories"
+			],
+			[
+				"max",
+				"max_length"
 			],
 			[
 				"P",
-				"ProductListView"
+				"Product"
 			],
 			[
 				"Pro",
-				"ProductAdmin"
+				"ProductQuerySet"
+			],
+			[
+				"de",
+				"decimal_places"
+			],
+			[
+				"Pr",
+				"ProductListView"
 			],
 			[
 				"te",
@@ -108,20 +132,12 @@
 				"get_queryset"
 			],
 			[
-				"de",
-				"default_products"
-			],
-			[
 				"T",
 				"True"
 			],
 			[
 				"__",
 				"__str__"
-			],
-			[
-				"max",
-				"max_length"
 			],
 			[
 				"var",
@@ -172,28 +188,10 @@
 	"buffers":
 	[
 		{
-			"file": "src/project_inventory/settings.py",
-			"settings":
-			{
-				"buffer_size": 3038,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/products/admin.py",
-			"settings":
-			{
-				"buffer_size": 244,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "src/project_inventory/urls.py",
 			"settings":
 			{
-				"buffer_size": 1079,
+				"buffer_size": 1143,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -202,7 +200,7 @@
 			"file": "src/products/urls.py",
 			"settings":
 			{
-				"buffer_size": 356,
+				"buffer_size": 426,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -220,7 +218,8 @@
 			"file": "src/products/models.py",
 			"settings":
 			{
-				"buffer_size": 395,
+				"buffer_size": 1755,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -237,7 +236,7 @@
 			"file": "src/templates/base.html",
 			"settings":
 			{
-				"buffer_size": 9589,
+				"buffer_size": 9574,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -254,7 +253,58 @@
 			"file": "src/products/views.py",
 			"settings":
 			{
-				"buffer_size": 488,
+				"buffer_size": 1218,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<html lang=\"en\">\n    <?php $this->load->view('admin_parts/head'); ?>\n    <!--[if lt IE 7 ]> <body class=\"ie ie6\"> <![endif]-->\n    <!--[if IE 7 ]> <body class=\"ie ie7 \"> <![endif]-->\n    <!--[if IE 8 ]> <body class=\"ie ie8 \"> <![endif]-->\n    <!--[if IE 9 ]> <body class=\"ie ie9 \"> <![endif]-->\n    <!--[if (gt IE 9)|!(IE)]><!--> \n    <body class=\"\"> \n        <!--<![endif]-->\n        <div class=\"se-pre-con\"></div>\n        <?php $this->load->view('admin_parts/top_nav'); ?>\n\n        <?php $this->load->view('admin_parts/left_sidebar'); ?>\n\n        <div class=\"content\">\n            <div class=\"header\">                \n                <h1 class=\"page-title\">\n                    <?php\n                    $last = $this->uri->total_segments();\n                    echo ucwords($this->uri->segment($last));\n\n\n                    //$segs = $this->uri->segment_array();\n                    //$number = count($segs) - 1;\n                    //echo $segs[$number];\n                    ?>\n                    <button class=\"btn btn-default\"><i class=\"icon-refresh\"></i></button>\n                </h1>                \n            </div>\n            <?php $this->load->view('admin_parts/breadcumb'); ?>\n\n            <?php $this->load->view($content); ?>            \n\n        </div>\n        <?php $this->load->view('admin_parts/footer'); ?>\n\n        <?php $this->load->view('admin_parts/scripts'); ?> \n        \n    </body>\n</html>\n\n\n",
+			"file": "/var/www/html/phillipfunds/public_en/app/views/admin_template.php",
+			"file_size": 1440,
+			"file_write_time": 131369041751573194,
+			"settings":
+			{
+				"buffer_size": 1440,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!doctype html>\n<html class=\"no-js\" lang=\"\">\n    <head>\n        <?php $this->load->view('master_parts/master_head'); ?>\n        <script>\n            function setCookie() {\n                var cname = $('#ip').val();\n                var cvalue = $('#ip').val();\n                var exdays = 30;\n                var d = new Date();\n                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));\n                var expires = \"expires=\" + d.toGMTString();\n                document.cookie = cname + \"=\" + cvalue + \"; \" + expires;\n            }\n\n            function getCookie() {\n                var cname = $('#ip').val();\n                var name = cname + \"=\";\n                var ca = document.cookie.split(';');\n                for (var i = 0; i < ca.length; i++) {\n                    var c = ca[i];\n                    while (c.charAt(0) == ' ')\n                        c = c.substring(1);\n                    if (c.indexOf(name) == 0) {\n                        return c.substring(name.length, c.length);\n                    }\n                }\n                return \"\";\n            }\n\n            function checkCookie() {\n                var user = getCookie($('#ip').val());\n                if (user != \"\") {\n                    //$('#disclaimerModal').modal('hide');\n                    console.log(\"Welcome again \" + user);\n                } else {\n                    $('#disclaimerModal').modal('show');\n                    /*\n                     user = prompt(\"Please enter your name:\", \"\");\n                     if (user != \"\" && user != null) {\n\n                     // setCookie(\"username\", user, 30);\n                     }*/\n                }\n            }\n\n        </script>\n    </head>\n    <body onload=\"checkCookie()\">\n        <!--[if lt IE 8]>\n            <p class=\"browserupgrade\">You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your experience.</p>\n        <![endif]-->\n\n        <!-- Add your site or application content here -->\n        <?php $this->load->view('master_parts/master_header'); ?>\n\n\n        <?php $this->load->view($content); ?>\n\n\n        <?php $this->load->view('master_pages/disclaimer_part'); ?>\n        <input type=\"hidden\" id=\"ip\" value=\"<?php echo $this->input->ip_address(); ?>\" />\n\n        <?php $this->load->view('master_parts/master_footer'); ?>\n\n        <?php $this->load->view('master_parts/master_scripts'); ?>\n\n        <!-- Google Code for Remarketing Tag -->\n        <!--------------------------------------------------\n        Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup\n        --------------------------------------------------->\n        <script type=\"text/javascript\">\n            /* <![CDATA[ */\n            var google_conversion_id = 861028629;\n            var google_custom_params = window.google_tag_params;\n            var google_remarketing_only = true;\n            /* ]]> */\n        </script>\n        <script type=\"text/javascript\" src=\"//www.googleadservices.com/pagead/conversion.js\">\n        </script>\n        <noscript>\n        <div style=\"display:inline;\">\n            <img height=\"1\" width=\"1\" style=\"border-style:none;\" alt=\"\" src=\"//googleads.g.doubleclick.net/pagead/viewthroughconversion/861028629/?guid=ON&amp;script=0\"/>\n        </div>\n        </noscript>\n\n        <!-- Start Alexa Certify Javascript -->\n        <script type=\"text/javascript\">\n\n            _atrk_opts = {atrk_acct: \"FRkom1akKd606C\", domain: \"phillipfunds.com\", dynamic: true};\n\n            (function() {\n                var as = document.createElement('script');\n                as.type = 'text/javascript';\n                as.async = true;\n                as.src = \"https://d31qbv1cthcecs.cloudfront.net/atrk.js\";\n                var s = document.getElementsByTagName('script')[0];\n                s.parentNode.insertBefore(as, s);\n            })();\n\n        </script>\n\n        <noscript><img src=\"https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=FRkom1akKd606C\" style=\"display:none\" height=\"1\" width=\"1\" alt=\"\" /></noscript>\n        <!-- End Alexa Certify Javascript -->\n\n    </body>\n</html>\n",
+			"file": "/var/www/html/phillipfunds/public_en/app/views/master_template.php",
+			"file_size": 4327,
+			"file_write_time": 131369041751613194,
+			"settings":
+			{
+				"buffer_size": 4327,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php if (!empty($page_content)) { ?>\n    <section id=\"page_header\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\n                    <div class=\"page_title\">\n                        <h2><?= $page_content->title ?></h2>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </section>\n\n    <section id=\"content_section\">\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\n                    <div class=\"breadcumb_div\">\n                        <ol class=\"breadcrumb\">\n                            <li><a href=\"home\"><i class=\"glyphicon glyphicon-home\"></i></a></li>\n                            <?php if ($this->uri->segment(3)) { ?>\n                                <?php if ($this->uri->segment(2) == 'about-us') { ?>\n                                    <li class=\"active\"><?php echo ucfirst(str_replace('-', ' ', $this->uri->segment(2))); ?></li>\n                                    <li class=\"active\"><?= $page_content['page_title'] ?></li>\n                                <?php } else { ?>\n                                    <li><a href=\"home/<?php echo str_replace('-', '_', $this->uri->segment(2)); ?>\"><?php echo ucfirst(str_replace('-', ' ', $this->uri->segment(2))); ?></a></li>\n                                    <li class=\"active\"><?= $page_content['page_title'] ?></li>\n                                <?php } ?>\n                            <?php } else { ?>\n                                <li class=\"active\"><?= $page_content->title ?></li>     \n                            <?php } ?>\n                        </ol>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\n                    <div class=\"content_area\">\n                        <div class=\"row\">\n                            <div class=\"col-lg-9\">\n                                <div class=\"content_left_area\">\n                                    <div class=\"content_box\">\n                                        <div class=\"content_header\">\n                                            <h3><?= $page_content->title ?></h3>\n                                        </div>\n                                        <div class=\"content_text\">\n                                            <?php if ($page_content->sub_title_1) { ?>\n                                                <div style=\"\"><?= $page_content->sub_title_1 ?></div>\n                                            <?php } ?>\n                                            <?php if ($page_content->sub_title_2) { ?>\n                                                <div style=\"margin-top: 20px;\"><?= $page_content->sub_title_2 ?></div>\n                                            <?php } ?>\n\n\n                                            <div class=\"table_custom\" style=\"margin-top: 20px;\">\n                                                <table class=\"table table-bordered table-responsive table-hover table-striped\">\n                                                    <thead> \n                                                        <tr> \n                                                            <th class=\"text-center\"><?= $page_content->table_col_1_title ?></th>\n                                                            <th class=\"text-center\"><?= $page_content->table_col_2_title ?></th>\n                                                            <th class=\"text-center\"><?= $page_content->table_col_3_title ?></th>\n                                                        </tr>\n                                                    </thead>\n                                                    <tbody> \n                                                        <tr> \n                                                            <td class=\"text-center\"><?= $page_content->table_col_1_content ?></td>\n                                                            <td class=\"text-center\"><?= $page_content->table_col_2_content ?></td>\n                                                            <td class=\"text-center\"><?= $page_content->table_col_3_content ?></td>\n                                                        </tr>\n                                                    </tbody>\n                                                    <tfoot>\n                                                        <tr>\n                                                            <td colspan=\"3\" class=\"text-center\">\n                                                                <?= $page_content->table_updated_at ?>\n                                                            </td>\n                                                        </tr>\n                                                    </tfoot>\n                                                </table>\n                                            </div>\n\n                                            <div  style=\"\"><?= $page_content->editor_content_small ?></div>\n\n\n                                            <?php if (!empty($page_content->banner)) { ?>\n                                                <img src=\"./uploads/pages_banner/<?= $page_content->banner ?>\" alt=\"\" />\n                                            <?php } ?>\n\n                                            <?php if ($page_content->editor_content_large) { ?>\n                                                <div  style=\"\"><?= $page_content->editor_content_large ?></div>\n                                            <?php } ?>\n\n                                        </div>\n                                    </div>\n\n                                    <div class=\"clearfix\"></div>\n                                    <style type=\"text/css\">\n                                        .accordion_content th,td{\n                                            border: 1px solid #ccc;\n                                            padding: 10px;\n                                        }\n                                    </style>\n                                    <div class=\"accordion_content\">\n                                        <div class=\"\" id=\"accordion\">\n\n                                            <div class=\"about_panel\">\n                                                <div class=\"about_panel_title\">\n                                                    <p class=\"panel-title\" style=\"font-weight: bold;\">\n                                                        <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\">\n                                                            <span class=\"glyphicon glyphicon-minus\"></span>\n                                                            <?= $page_content->collapsible_1_title ?>\n                                                        </a>\n                                                    </p>\n                                                </div>\n                                                <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n                                                    <div class=\"about_panel_body\">\n                                                        <?= $page_content->collapsible_1_content ?>\n                                                    </div>\n                                                </div>\n                                            </div>\n\n                                            <div class=\"about_panel\">\n                                                <div class=\"about_panel_title\">\n                                                    <p class=\"panel-title\" style=\"font-weight: bold;\">\n                                                        <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseTwo\">\n                                                            <span class=\"glyphicon glyphicon-plus\"></span>\n                                                            <?= $page_content->collapsible_2_title ?>\n                                                        </a>\n                                                    </p>\n                                                </div>\n                                                <div id=\"collapseTwo\" class=\"panel-collapse collapse\">\n                                                    <div class=\"about_panel_body\">\n                                                        <?= $page_content->collapsible_2_content ?>\n                                                    </div>\n                                                </div>\n                                            </div>\n\n                                            <div class=\"about_panel\">\n                                                <div class=\"about_panel_title\">\n                                                    <p class=\"panel-title\" style=\"font-weight: bold;\">\n                                                        <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseThree\">\n                                                            <span class=\"glyphicon glyphicon-plus\"></span>\n                                                            <?= $page_content->collapsible_3_title ?>\n                                                        </a>\n                                                    </p>\n                                                </div>\n                                                <div id=\"collapseThree\" class=\"panel-collapse collapse\">\n                                                    <div class=\"about_panel_body\">\n                                                        <?= $page_content->collapsible_3_content ?>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"about_panel\">\n                                                <div class=\"about_panel_title\">\n                                                    <p class=\"panel-title\" style=\"font-weight: bold;\">\n                                                        <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapsefour\">\n                                                            <span class=\"glyphicon glyphicon-plus\"></span>\n                                                            <?= $page_content->collapsible_4_title ?>\n                                                        </a>\n                                                    </p>\n                                                </div>\n                                                <div id=\"collapsefour\" class=\"panel-collapse collapse\">\n                                                    <div class=\"about_panel_body\">\n                                                        <?= $page_content->collapsible_4_content ?>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"about_panel\">\n                                                <div class=\"about_panel_title\">\n                                                    <p class=\"panel-title\" style=\"font-weight: bold;\">\n                                                        <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapsefive\">\n                                                            <span class=\"glyphicon glyphicon-plus\"></span>\n                                                            <?= $page_content->collapsible_5_title ?>\n                                                        </a>\n                                                    </p>\n                                                </div>\n                                                <div id=\"collapsefive\" class=\"panel-collapse collapse\">\n                                                    <div class=\"about_panel_body\">\n                                                        <?= $page_content->collapsible_5_content ?>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <?php if (!empty($page_content->collapsible_6_title)) { ?>\n                                                <div class=\"about_panel\">\n                                                    <div class=\"about_panel_title\">\n                                                        <p class=\"panel-title\" style=\"font-weight: bold;\">\n                                                            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseSix\">\n                                                                <span class=\"glyphicon glyphicon-plus\"></span>\n                                                                <?= $page_content->collapsible_6_title ?>\n                                                            </a>\n                                                        </p>\n                                                    </div>\n                                                    <div id=\"collapseSix\" class=\"panel-collapse collapse\">\n                                                        <div class=\"about_panel_body\">\n                                                            <?= $page_content->collapsible_6_content ?>\n                                                        </div>\n                                                    </div>\n                                                </div>  \n                                            <?php } ?>\n\n                                            <?php if (!empty($page_content->collapsible_7_title)) { ?>\n                                                <div class=\"about_panel\">\n                                                    <div class=\"about_panel_title\">\n                                                        <p class=\"panel-title\" style=\"font-weight: bold;\">\n                                                            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseSeven\">\n                                                                <span class=\"glyphicon glyphicon-plus\"></span>\n                                                                <?= $page_content->collapsible_7_title ?>\n                                                            </a>\n                                                        </p>\n                                                    </div>\n                                                    <div id=\"collapseSeven\" class=\"panel-collapse collapse\">\n                                                        <div class=\"about_panel_body\">\n                                                            <?= $page_content->collapsible_7_content ?>\n                                                        </div>\n                                                    </div>\n                                                </div>\n                                            <?php } ?>\n                                        </div>\n                                    </div>  \n                                    <hr />\n\n\n                                    <div style=\"\"><?= $page_content->editor_content_last ?></div>\n                                </div>\n                            </div>\n                            <div class=\"col-lg-3\">\n                                <div class=\"content_sidebar\">\n                                    <div class=\"\" style=\"margin-top: 100px;\"></div>\n                                    <?php if (!empty($page_content->sidebar_row_1_title)) { ?>\n                                        \n                                        <!-- Trigger the modal with a button -->\n                                        <button type=\"button\" style=\"font-weight: bold;padding: 5px\" data-toggle=\"modal\" data-target=\"#myModal_1\">\n                                            <?= $page_content->sidebar_row_1_title ?>\n                                        </button>\n                                        <!-- Modal -->\n                                        <div id=\"myModal_1\" class=\"modal fade\" role=\"dialog\">\n                                            <div class=\"modal-dialog\">\n                                                <!-- Modal content-->\n                                                <div class=\"modal-content\">\n                                                    <div class=\"modal-header\">\n                                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n                                                        <h4 class=\"modal-title\"><?= $page_content->sidebar_row_1_title ?></h4>\n                                                    </div>\n                                                    <div class=\"modal-body\">\n                                                        <p><?= $page_content->sidebar_row_1_content ?></p>\n                                                    </div>\n                                                    <div class=\"modal-footer\">\n                                                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n                                                    </div>\n                                                </div>\n\n                                            </div>\n                                        </div>\n\n                                    <?php } ?>\n\n                                    <div class=\"\" style=\"margin-top: 20px;\"></div>\n\n                                    <?php if (!empty($page_content->sidebar_row_2_title)) { ?>\n\n                                        <!-- Trigger the modal with a button -->\n                                        <button type=\"button\" style=\"font-weight: bold;padding: 5px\" data-toggle=\"modal\" data-target=\"#myModal_2\">\n                                            <?= $page_content->sidebar_row_2_title ?>\n                                        </button>\n                                        <!-- Modal -->\n                                        <div id=\"myModal_2\" class=\"modal fade\" role=\"dialog\">\n                                            <div class=\"modal-dialog\">\n                                                <!-- Modal content-->\n                                                <div class=\"modal-content\">\n                                                    <div class=\"modal-header\">\n                                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n                                                        <h4 class=\"modal-title\"><?= $page_content->sidebar_row_2_title ?></h4>\n                                                    </div>\n                                                    <div class=\"modal-body\">\n                                                        <p><?= $page_content->sidebar_row_2_content ?></p>\n                                                    </div>\n                                                    <div class=\"modal-footer\">\n                                                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n                                                    </div>\n                                                </div>\n\n                                            </div>\n                                        </div>\n\n                                    <?php } ?>\n\n                                    <div class=\"\" style=\"margin-top: 20px;\"></div>\n\n                                    <?php if (!empty($page_content->sidebar_row_3_title)) { ?>\n                                        <!-- Trigger the modal with a button -->\n                                        <button type=\"button\" style=\"font-weight: bold;padding: 5px\" data-toggle=\"modal\" data-target=\"#myModal_3\">\n                                            <?= $page_content->sidebar_row_3_title ?>\n                                        </button>\n                                        <!-- Modal -->\n                                        <div id=\"myModal_3\" class=\"modal fade\" role=\"dialog\">\n                                            <div class=\"modal-dialog\">\n                                                <!-- Modal content-->\n                                                <div class=\"modal-content\">\n                                                    <div class=\"modal-header\">\n                                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n                                                        <h4 class=\"modal-title\"><?= $page_content->sidebar_row_3_title ?></h4>\n                                                    </div>\n                                                    <div class=\"modal-body\">\n                                                        <p><?= $page_content->sidebar_row_3_content ?></p>\n                                                    </div>\n                                                    <div class=\"modal-footer\">\n                                                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n                                                    </div>\n                                                </div>\n\n                                            </div>\n                                        </div>\n                                    <?php } ?>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </section>\n<?php } ?>",
+			"file": "/var/www/html/phillipfunds/public_en/app/views/master_pages/etfs.php",
+			"file_size": 22260,
+			"file_write_time": 131369041751613194,
+			"settings":
+			{
+				"buffer_size": 22260,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/products/templates/products/create_view.html",
+			"settings":
+			{
+				"buffer_size": 75,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/products/templates/categories/category_list.html",
+			"settings":
+			{
+				"buffer_size": 722,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -292,19 +342,24 @@
 	},
 	"expanded_folders":
 	[
+		"/home/shuvograph/first_project",
 		"/home/shuvograph/first_project/src",
-		"/home/shuvograph/first_project/src/products/migrations",
+		"/home/shuvograph/first_project/src/products",
 		"/home/shuvograph/first_project/src/products/templates",
-		"/home/shuvograph/first_project/src/products/templates/products",
-		"/home/shuvograph/first_project/src/static_in_pro/our_static",
-		"/home/shuvograph/first_project/src/static_in_pro/our_static/css",
-		"/home/shuvograph/first_project/src/static_in_pro/our_static/img",
-		"/home/shuvograph/first_project/src/static_in_pro/our_static/js",
-		"/home/shuvograph/first_project/static_in_env/static_root",
-		"/home/shuvograph/first_project/static_in_env/static_root/img"
+		"/home/shuvograph/first_project/src/products/templates/categories",
+		"/home/shuvograph/first_project/src/products/templates/products"
 	],
 	"file_history":
 	[
+		"/home/shuvograph/first_project/src/products/templates/categories/category_detail.html",
+		"/home/shuvograph/first_project/src/products/urls_categories.py",
+		"/home/shuvograph/first_project/src/products/admin.py",
+		"/home/shuvograph/first_project/src/project_inventory/settings.py",
+		"/home/shuvograph/first_project/src/products/forms.py",
+		"/etc/phpmyadmin/config-db.php",
+		"/etc/phpmyadmin/htpasswd.setup",
+		"/var/www/html/index.html",
+		"/home/shuvograph/first_project/src/project_inventory/urls.py",
 		"/home/shuvograph/first_project/src/products/templates/home.html",
 		"/home/shuvograph/Downloads/ecommerce-2-master/src/products/urls.py",
 		"/home/shuvograph/first_project/src/templates/navbar.html",
@@ -395,24 +450,24 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/project_inventory/settings.py",
+					"file": "src/project_inventory/urls.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3038,
+						"buffer_size": 1143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3030,
-								3030
+								1143,
+								1143
 							]
 						],
 						"settings":
@@ -422,131 +477,47 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1530.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/products/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								239,
+								239
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "src/products/admin.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 244,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								242,
-								242
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
 					"buffer": 2,
-					"file": "src/project_inventory/urls.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1079,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1079,
-								1079
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/products/urls.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 356,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								205,
-								205
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "src/products/templates/products/product_list.html",
 					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 758,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								651,
-								651
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/products/models.py",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 395,
 						"regions":
 						{
 						},
@@ -559,17 +530,45 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/products/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1755,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1517,
+								1517
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 4,
 					"file": "src/products/templates/products/product_detail.html",
 					"semi_transient": false,
 					"settings":
@@ -593,24 +592,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 5,
 					"file": "src/templates/base.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9589,
+						"buffer_size": 9574,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2508,
-								2508
+								495,
+								495
 							]
 						],
 						"settings":
@@ -620,14 +619,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 561.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 6,
 					"file": "/home/shuvograph/Downloads/ecommerce-2-master/src/templates/navbar.html",
 					"semi_transient": false,
 					"settings":
@@ -650,27 +649,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 714.0,
+						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 7,
 					"file": "src/products/views.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 488,
+						"buffer_size": 1218,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								430,
-								430
+								800,
+								800
 							]
 						],
 						"settings":
@@ -681,7 +680,155 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/var/www/html/phillipfunds/public_en/app/views/admin_template.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1440,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/var/www/html/phillipfunds/public_en/app/views/master_template.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4327,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 510.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/var/www/html/phillipfunds/public_en/app/views/master_pages/etfs.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 867.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/products/templates/products/create_view.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 75,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56,
+								56
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "src/products/templates/categories/category_list.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								533,
+								533
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
 					"type": "text"
 				}
 			]

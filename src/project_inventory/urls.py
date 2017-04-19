@@ -23,5 +23,6 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^products/', include('products.urls')),
+    url(r'^categories/', include('products.urls_categories')),
 ] 
 # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # only for development environment not for production environment
