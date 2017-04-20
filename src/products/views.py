@@ -7,6 +7,8 @@ from django.core.urlresolvers import reverse
 
 # Create your views here. 
 
+# from projectinventory.mixins import LoginRequiredMixin
+
 from .forms import ProductAddForm, ProdutModelForm, CategoryModelForm
 from .models import Product, Category
 
