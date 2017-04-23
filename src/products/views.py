@@ -7,16 +7,25 @@ from django.core.urlresolvers import reverse
 
 # Create your views here. 
 
+from projectinventory.mixins import LoginRequiredMixin 
+from sellers.mixins import SellerAccountMixin
+
 # from projectinventory.mixins import LoginRequiredMixin
 
 from .forms import ProductAddForm, ProdutModelForm, CategoryModelForm
 from .models import Product, Category
 
-class CategoryCreateView(CreateView):
+class CategoryCreateView(SellerAccountMixin, CreateView):
 	model = Category	
 	template_name = "categories/category_form.html"
 	form_class = CategoryModelForm
 	success_url = "/categories/create/"
+
+	def form_valid(self, form):
+		seller = self.get_account()
+		form.instance.seller = seller
+		valid_data = super(CategoryCreateView, self).form_valid(form)
+		return valid_data	
 
 
 
@@ -38,11 +47,28 @@ class CategoryDetailView(DetailView):
 
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(SellerAccountMixin, CreateView):
 	model = Product	
 	template_name = "products/product_form.html"
 	form_class = ProdutModelForm
-	success_url = "/products/create/"
+	success_url = "/seller/products/"
+
+	def form_valid(self, form):
+		seller = self.get_account()
+		form.instance.seller = seller
+		valid_data = super(ProductCreateView, self).form_valid(form)
+		return valid_data
+
+
+
+class SellerProductListView(SellerAccountMixin, ListView):
+	model = Product
+	queryset = Product.objects.all()
+	template_name = "sellers/product_list_view.html"
+
+	def get_context_data(self, *args, **kwargs):
+		context = super(SellerProductListView, self).get_context_data(*args, **kwargs)
+		return context		
 
 
 

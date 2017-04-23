@@ -42,7 +42,9 @@ class ProdutModelForm(forms.ModelForm):
 		fields = [
 			"title",
 			"description",
+			"sale_price",
 			"price",
+			"categories",
 		]
 
 	def clean_price(self):

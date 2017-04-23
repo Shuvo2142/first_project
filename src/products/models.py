@@ -1,7 +1,10 @@
-from django.core.urlresolvers import reverse
-from django.db import models
 
+from django.db import models
+from django.core.urlresolvers import reverse
 # Create your models here.
+
+from sellers.models import SellerAccount
+
 
 class ProductQuerySet(models.query.QuerySet):
 	def active(self):
@@ -19,6 +22,7 @@ class ProductManager(models.Manager):
 
 
 class Product(models.Model):
+	seller = models.ForeignKey(SellerAccount)
 	title = models.CharField(max_length=120)
 	description = models.TextField(null=True, blank=True)
 	price = models.DecimalField(decimal_places=2, max_digits=20)
@@ -29,8 +33,9 @@ class Product(models.Model):
 	# slug
 	# inventory
 
-	categories = models.ManyToManyField("Category")
-	default = models.ForeignKey("Category", related_name="default_category", null=True, blank=True)
+	# categories = models.ManyToManyField("Category")
+	# default = models.ForeignKey("Category", related_name="default_category", null=True, blank=True)
+	categories = models.ForeignKey("Category")
 
 	objects = ProductManager()
 
@@ -42,6 +47,9 @@ class Product(models.Model):
 			return self.sale_price
 		else:
 			return self.price
+
+	# def get_absolute_url(self):
+	# 	return reverse("product_list_view", )		
 
 
 
