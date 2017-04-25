@@ -2,27 +2,33 @@
 
 {% block content %}
 	<h2 class="sub-header">Products</h2>
-        <div class="table-responsive">
-            <table class="table table-striped">
-              	<thead>
-	                <tr>
-	                  <th>Id</th>
-	                  <th> Product Name</th>
-                    <th> Category</th>
-	                  <th>Price</th>
-	                </tr>
-              	</thead>
-              	{% for object in object_list %}
-              	<tbody>
-                	<tr>
-                  		<td>{{ object.id }}</td>
-                  		<td>{{ object.title }}</td>
-                      <td>{{ object.categories }}</td>
-                  		<td>{{ object.price }}</td>
-                      <td><a href='#'>Edit</a> | <a href='#'>Delete</a></td>
-                	</tr>
-                </tbody>	 
-                {% endfor %}	             	
-            </table>
-        </div>      			
+  <div class="table-responsive">
+    <table class="table table-striped">
+    	<thead>
+        <tr>
+          <th>Id</th>
+          <th> Product Name</th>
+          <th> Category</th>
+          <th>Price</th>
+        </tr>
+    	</thead>
+      {% for object in object_list %}
+        <form method='GET' action="{% url 'cart' %}">
+        	<tbody>
+          	<tr>
+          		<td>{{ object.id }}</td>
+          		<td>{{ object.title }}</td>
+              <td>{{ object.categories }}</td>
+          		<td>{{ object.price }}</td>
+              <td><a href='#'>Edit</a> | <a href='#'>Delete</a></td>
+              <!-- <select name='item' class='form-control item_select'> -->
+              <td><input type='submit' value='Add' class='btn btn-default'/><input style="display: none" name="item" value="{{ object.id }}"/><input class='form-control' type='number' name="qty" value='1'/></td>
+              <!-- <td><a href='{% url "cart" %}'></a>Add</td> -->
+              <!-- </select>   -->
+          	</tr>
+          </tbody>
+        </form>	 
+      {% endfor %}  	             	
+    </table>
+  </div>      			
 {% endblock %}

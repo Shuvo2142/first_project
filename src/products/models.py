@@ -49,7 +49,13 @@ class Product(models.Model):
 			return self.price
 
 	# def get_absolute_url(self):
-	# 	return reverse("product_list_view", )		
+	# 	return reverse("product_list_view", )
+
+	def add_to_cart(self):
+		return "%s?item=%s&qty=1" %(reverse("cart"), self.id)	
+
+	def remove_from_cart(self):
+		return "%s?item=%s&qty=1&delete=True" %(reverse("cart"), self.id)				
 
 
 

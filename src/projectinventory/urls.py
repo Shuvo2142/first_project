@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'^products/', include('products.urls')),
     url(r'^categories/', include('products.urls_categories')),
     url(r'^seller/', include('sellers.urls')),
-    url(r'^cart/$', SellingCartView.as_view(), name='cart'),
+    url(r'^cart/', include('sellingcarts.urls'))
+    # url(r'^cart/$', SellingCartView.as_view(), name='cart'),
+    # url(r'^cart/(?P<pk>\d+)/$', SellingCartView.as_view(), name='cart'),
 ] 
 # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # only for development environment not for production environment

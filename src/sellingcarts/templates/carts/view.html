@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+	<h2 class="sub-header">Sells</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+    			<tr>
+      				<!-- <th> Product Id</th> -->
+      				<th> Product Name</th>
+      				<!-- <th> Category</th> -->
+      				<!-- <th>Price</th> -->
+      				<th> Quantity</th>
+    			</tr>
+			</thead>
+  			{% for item in object.sellingcartitem_set.all %}
+    			<tbody>
+      				<tr>
+      					<form action="." method="GET">
+	      					<!-- <td>{{ item.id }}</td> -->
+	      					<td>{{ item }}</td>
+	          				<!-- <td>{{ object.categories }}</td> -->
+	      					<td><input type='number' class='item-qty' name='qty' value='{{ item.quantity }}'/><input type='submit' class='btn-update btn-link' value='Update Item' style='display: none;'></td>
+	      					<td><input type='hidden' name='item' value='{{ item.item.id }}'/></td>
+	      					<td>{{ item.line_total }}</td>
+	      					<td class='text-right'><a href='{{ item.remove }}'> X</a></td>
+	      				</form>	
+      				</tr>
+      			</tbody>
+  			{% endfor %}  	             	
+		</table>
+	</div> 
+{% endblock %}
