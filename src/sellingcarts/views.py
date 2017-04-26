@@ -54,37 +54,3 @@ class SellingCartView(SingleObjectMixin, View):
 		return render(request, template, context)
 
 
-
-	# def get(self, request, *args, **kwargs):
-	# 	self.request.session.set_expiry(0)
-	# 	cart_id = self.request.session.get("cart_id")
-	# 	if cart_id == None:
-	# 		cart = SellingCart()
-	# 		cart.save()
-	# 		cart_id = cart.id
-	# 		self.request.session["cart_id"] = cart_id
-	# 	if cart_id == None:
-	# 		cart = SellingCart()
-	# 		cart.save()
-	# 		cart_id = cart.id
-	# 		self.request.session["cart_id"] = cart_id			
-	# 	cart = SellingCart.objects.get(id=cart_id)
-	# 	cart.save()	
-	# 	item_id = self.request.GET.get("item")
-	# 	delete_item = self.request.GET.get("delete")
-	# 	if item_id:
-	# 		item_instance = get_object_or_404(Product, id=item_id)
-	# 		qty = self.request.GET.get("qty")
-	# 		cart_item = SellingCartItem.objects.get_or_create(cart=cart, item=item_instance)[0]
-	# 		if delete_item:
-	# 			cart_item.delete()
-	# 		else:	
-	# 			cart_item.quantity = qty
-	# 			cart_item.save()
-	# 	context = {
-	# 		# "object": self.get_object()
-	# 		"cart": cart
-	# 	}
-	# 	template = self.template_name		
-	# 	return render(request, template, context)	
-	# 	# return HttpResponseRedirect("/seller/")			

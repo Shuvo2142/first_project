@@ -13,7 +13,7 @@
         </tr>
     	</thead>
       {% for object in object_list %}
-        <form method='GET' action="{% url 'cart' %}">
+        <form class='add-form' method='GET' action="{% url 'cart' %}">
         	<tbody>
           	<tr>
           		<td>{{ object.id }}</td>
@@ -22,7 +22,7 @@
           		<td>{{ object.price }}</td>
               <td><a href='#'>Edit</a> | <a href='#'>Delete</a></td>
               <!-- <select name='item' class='form-control item_select'> -->
-              <td><input type='submit' value='Add' class='btn btn-default'/><input style="display: none" name="item" value="{{ object.id }}"/><input class='form-control' type='number' name="qty" value='1'/></td>
+              <td><input id="submit-btn" type='submit' value='Add' class='btn btn-default submit-btn'/><input style="display: none" name="item" value="{{ object.id }}"/><input class='form-control' type='number' name="qty" value='1'/></td>
               <!-- <td><a href='{% url "cart" %}'></a>Add</td> -->
               <!-- </select>   -->
           	</tr>
@@ -32,3 +32,20 @@
     </table>
   </div>      			
 {% endblock %}
+<!--   {% block jquery %}
+<script>
+
+    $(".submit-btn").click(function(event){
+      event.preventDefault();
+      // var formData = $(this).find('.add-form').serialize();
+
+      var pro_id = $(this).closest('tr').find('.pro_id').text();
+      var pro_name = $(this).closest('tr').find('.pro_name').text();
+
+      console.log(pro_name);
+      // console.log($(this).find('.add-form'));
+
+    })
+
+</script>
+  {% endblock %} -->

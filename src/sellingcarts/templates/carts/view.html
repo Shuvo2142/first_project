@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
+<!-- <script>
+	{% block jquery %}
+		$(".item-qty").change(function(){
+			$(this).next(".btn-update").fadeIn();
+		});
+	{% endblock %}
+</script> -->
 
 {% block content %}
 	<h2 class="sub-header">Sells</h2>
@@ -21,14 +28,19 @@
 	      					<!-- <td>{{ item.id }}</td> -->
 	      					<td>{{ item }}</td>
 	          				<!-- <td>{{ object.categories }}</td> -->
-	      					<td><input type='number' class='item-qty' name='qty' value='{{ item.quantity }}'/><input type='submit' class='btn-update btn-link' value='Update Item' style='display: none;'></td>
+	      					<td><input type='number' class='item-qty' name='qty' value='{{ item.quantity }}'/><input type='submit' class='btn-update btn-link' value='Update Item'/></td>
 	      					<td><input type='hidden' name='item' value='{{ item.item.id }}'/></td>
-	      					<td>{{ item.line_total }}</td>
+	      					<td>{{ item.line_item_total }}</td>
 	      					<td class='text-right'><a href='{{ item.remove }}'> X</a></td>
 	      				</form>	
       				</tr>
       			</tbody>
-  			{% endfor %}  	             	
+  			{% endfor %}
+  			<tbody>
+  				<tr>
+  					<td colspan="4" class="text-right">SubTotal: {{ object.subtotal }}</td>
+  				</tr>
+  			</tbody>  	             	
 		</table>
 	</div> 
 {% endblock %}
