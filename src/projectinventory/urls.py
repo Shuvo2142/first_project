@@ -24,6 +24,8 @@ urlpatterns = [
 	# url(r'^$', 'products.views.home', name='home'),
 
     url(r'^admin/', include(admin.site.urls)),
+    # django registration redux
+    url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^products/', include('products.urls')),
     url(r'^categories/', include('products.urls_categories')),
     url(r'^seller/', include('sellers.urls')),

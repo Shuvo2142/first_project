@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"su",
+				"success_url"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
 				"form",
 				"formData"
 			],
@@ -136,10 +144,6 @@
 				"cart_item"
 			],
 			[
-				"re",
-				"request"
-			],
-			[
 				"F",
 				"ForeignKey"
 			],
@@ -252,37 +256,10 @@
 	"buffers":
 	[
 		{
-			"file": "src/sellingcarts/admin.py",
+			"file": "src/products/models.py",
 			"settings":
 			{
-				"buffer_size": 362,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/projectinventory/urls.py",
-			"settings":
-			{
-				"buffer_size": 1424,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/sellingcarts/views.py",
-			"settings":
-			{
-				"buffer_size": 2841,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/sellingcarts/urls.py",
-			"settings":
-			{
-				"buffer_size": 381,
+				"buffer_size": 2148,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -291,25 +268,34 @@
 			"file": "src/sellingcarts/models.py",
 			"settings":
 			{
-				"buffer_size": 1935,
+				"buffer_size": 1957,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/sellingcarts/templates/carts/view.html",
+			"file": "src/projectinventory/settings.py",
 			"settings":
 			{
-				"buffer_size": 1410,
+				"buffer_size": 3387,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/sellers/templates/sellers/product_list_view.html",
+			"file": "src/templates/navbar.html",
 			"settings":
 			{
-				"buffer_size": 1677,
+				"buffer_size": 1074,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/projectinventory/urls.py",
+			"settings":
+			{
+				"buffer_size": 1527,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -318,25 +304,53 @@
 			"file": "src/templates/base.html",
 			"settings":
 			{
-				"buffer_size": 10230,
+				"buffer_size": 4409,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/products/views.py",
+			"contents": "Searching 102 files for \"Account Pending\"\n\n/home/shuvograph/first_project/src/sellers/views.py:\n   45  \t\t\tcontext[\"apply_form\"] = apply_form\n   46  \t\telif exists and not active:\n   47: \t\t\tcontext[\"title\"] = \"Account Pending\"\n   48  \t\telif exists and active:\n   49  \t\t\tcontext[\"title\"] = \"Seller Dashboard\"\t\t\n\n1 match in 1 file\n",
 			"settings":
 			{
-				"buffer_size": 2437,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"buffer_size": 327,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
 			"file": "src/projectinventory/mixins.py",
 			"settings":
 			{
-				"buffer_size": 582,
+				"buffer_size": 583,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/sellers/models.py",
+			"settings":
+			{
+				"buffer_size": 452,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/sellers/mixins.py",
+			"settings":
+			{
+				"buffer_size": 603,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/sellingcarts/views.py",
+			"settings":
+			{
+				"buffer_size": 1751,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -375,37 +389,38 @@
 	[
 		"/home/shuvograph/first_project",
 		"/home/shuvograph/first_project/src",
-		"/home/shuvograph/first_project/src/projectinventory",
-		"/home/shuvograph/first_project/src/sellingcarts/templates",
-		"/home/shuvograph/first_project/src/sellingcarts/templates/carts",
-		"/home/shuvograph/first_project/src/static_in_pro/our_static",
-		"/home/shuvograph/first_project/src/static_in_pro/our_static/js",
-		"/home/shuvograph/first_project/static_in_env/media_root",
-		"/home/shuvograph/first_project/static_in_env/static_root",
-		"/home/shuvograph/first_project/static_in_env/static_root/js"
+		"/home/shuvograph/first_project/src/sellers",
+		"/home/shuvograph/first_project/src/sellers/templates",
+		"/home/shuvograph/first_project/src/sellers/templates/sellers",
+		"/home/shuvograph/first_project/src/templates/registration"
 	],
 	"file_history":
 	[
-		"/home/shuvograph/first_project/src/products/models.py",
+		"/home/shuvograph/first_project/src/templates/registration/activation_email.txt",
+		"/home/shuvograph/first_project/src/products/views.py",
 		"/home/shuvograph/first_project/src/sellingcarts/views.py",
+		"/home/shuvograph/first_project/src/db.sqlite3",
 		"/home/shuvograph/Downloads/ecommerce-2-master/src/carts/views.py",
+		"/home/shuvograph/first_project/src/projectinventory/mixins.py",
+		"/home/shuvograph/first_project/src/sellers/mixins.py",
+		"/home/shuvograph/first_project/src/templates/base.html",
+		"/home/shuvograph/first_project/src/sellers/templates/sellers/product_list_view.html",
+		"/home/shuvograph/first_project/src/sellingcarts/admin.py",
+		"/home/shuvograph/first_project/src/sellingcarts/templates/carts/view.html",
+		"/home/shuvograph/first_project/src/sellingcarts/models.py",
+		"/home/shuvograph/first_project/src/sellingcarts/urls.py",
+		"/home/shuvograph/first_project/src/projectinventory/urls.py",
+		"/home/shuvograph/first_project/src/products/models.py",
 		"/home/shuvograph/Downloads/ecommerce-2-master/src/ecommerce2/urls.py",
 		"/home/shuvograph/Downloads/django-cart-master/cart/models.py",
 		"/home/shuvograph/Downloads/django-cart-master/cart/tests.py",
 		"/home/shuvograph/Downloads/django-cart-master/cart/views.py",
 		"/home/shuvograph/Downloads/django-cart-master/cart/cart.py",
-		"/home/shuvograph/first_project/src/projectinventory/urls.py",
-		"/home/shuvograph/first_project/src/sellingcarts/admin.py",
-		"/home/shuvograph/first_project/src/sellingcarts/models.py",
 		"/home/shuvograph/Downloads/django-cart-master/cart/apps.py",
 		"/home/shuvograph/first_project/src/projectinventory/settings.py",
-		"/home/shuvograph/first_project/src/templates/base.html",
 		"/home/shuvograph/first_project/src/sellers/urls.py",
-		"/home/shuvograph/first_project/src/products/views.py",
 		"/home/shuvograph/first_project/src/products/forms.py",
-		"/home/shuvograph/first_project/src/sellers/mixins.py",
 		"/home/shuvograph/first_project/src/products/templates/products/product_list.html",
-		"/home/shuvograph/first_project/src/sellers/templates/sellers/product_list_view.html",
 		"/home/shuvograph/first_project/src/products/admin.py",
 		"/home/shuvograph/first_project/src/billing/views.py",
 		"/home/shuvograph/first_project/src/products/templates/categories/category_list.html",
@@ -416,7 +431,6 @@
 		"/home/shuvograph/first_project/src/sellers/templates/sellers/dashboard.html",
 		"/home/shuvograph/first_project/src/sellers/views.py",
 		"/home/shuvograph/first_project/src/sellers/models.py",
-		"/home/shuvograph/first_project/src/projectinventory/mixins.py",
 		"/home/shuvograph/first_project/src/project_inventory/mixins.py",
 		"/home/shuvograph/first_project/src/manage.py",
 		"/home/shuvograph/first_project/src/projectinventory/wsgi.py",
@@ -499,6 +513,9 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"/home/shuvograph/first_project/src/",
+			"/home/shuvograph/first_project/src/sellingcarts",
+			"/home/shuvograph/first_project/src/products",
 			"/home/shuvograph/first_project/src",
 			"/home/shuvo/ecommerce2/src"
 		]
@@ -508,6 +525,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Account Pending",
+			"subtotal",
+			"slug",
+			"src",
 			"console",
 			"project_inventory",
 			" \n",
@@ -532,52 +553,142 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 9,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/sellingcarts/admin.py",
+					"file": "src/products/models.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 362,
+						"buffer_size": 2148,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								318,
-								318
+								1698,
+								1698
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/sellingcarts/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1957,
+								1957
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/projectinventory/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3384,
+								3384
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1989.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "src/projectinventory/urls.py",
+					"buffer": 3,
+					"file": "src/templates/navbar.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1424,
+						"buffer_size": 1074,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1145,
-								1145
+								856,
+								856
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/projectinventory/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								971,
+								971
 							]
 						],
 						"settings":
@@ -590,138 +701,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/sellingcarts/views.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2841,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1374,
-								1374
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1428.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/sellingcarts/urls.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 381,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								353,
-								353
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/sellingcarts/models.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1935,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1062,
-								1062
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 306.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "src/sellingcarts/templates/carts/view.html",
+					"file": "src/templates/base.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1410,
+						"buffer_size": 4409,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1274,
-								1274
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 255.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/sellers/templates/sellers/product_list_view.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								515,
-								515
+								3465,
+								3465
 							]
 						],
 						"settings":
@@ -729,6 +726,52 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 327,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										208,
+										223
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -739,74 +782,39 @@
 				},
 				{
 					"buffer": 7,
-					"file": "src/templates/base.html",
+					"file": "src/projectinventory/mixins.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10230,
+						"buffer_size": 583,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10166,
-								10166
+								253,
+								253
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 663.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "src/products/views.py",
+					"file": "src/sellers/models.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2437,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								752,
-								752
-							],
-							[
-								1090,
-								1090
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "src/projectinventory/mixins.py",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 582,
+						"buffer_size": 452,
 						"regions":
 						{
 						},
@@ -825,7 +833,65 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/sellers/mixins.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 603,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								603,
+								603
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/sellingcarts/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1751,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								516,
+								516
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -908,7 +974,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 223.0,
+	"side_bar_width": 230.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
