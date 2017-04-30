@@ -45,6 +45,7 @@ class ProdutModelForm(forms.ModelForm):
 			"sale_price",
 			"price",
 			"categories",
+			"inventory",
 		]
 
 	def clean_price(self):

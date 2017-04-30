@@ -48,8 +48,8 @@ class Product(models.Model):
 		else:
 			return self.price
 
-	# def get_absolute_url(self):
-	# 	return reverse("product_list_view", )
+	def get_absolute_url(self):
+		return reverse("product_detail_view", kwargs={"pk": self.pk})
 
 	def add_to_cart(self):
 		return "%s?item=%s&qty=1" %(reverse("cart"), self.id)	

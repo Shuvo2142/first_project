@@ -2,7 +2,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.db.models.signals import pre_save, post_save
+from django.db.models.signals import pre_save, post_save, post_delete
 
 # Create your models here.
 
@@ -37,7 +37,9 @@ pre_save.connect(selling_cart_item_pre_save_receiver, sender=SellingCartItem)
 def selling_cart_item_post_save_receiver(sender, instance, *args, **kwargs):
 	instance.cart.update_subtotal()
 
-post_save.connect(selling_cart_item_post_save_receiver, sender=SellingCartItem)					
+post_save.connect(selling_cart_item_post_save_receiver, sender=SellingCartItem)	
+
+post_delete.connect(selling_cart_item_post_save_receiver, sender=SellingCartItem)				
 
 
 

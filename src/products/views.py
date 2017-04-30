@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
@@ -61,6 +61,25 @@ class ProductCreateView(SellerAccountMixin, CreateView):
 
 
 
+class ProductUpdateView(SellerAccountMixin, UpdateView):
+	model = Product
+	template_name = "products/product_update_form.html"
+	form_class = ProdutModelForm
+	success_url = "/seller/products/"
+
+	def form_valid(self, form):
+		seller = self.get_account()
+		form.instance.seller = seller
+		valid_data = super(ProductUpdateView, self).form_valid(form)
+		return valid_data
+	# have to think about it
+	def get_context_data(self, *args, **kwargs):
+		context = super(ProductUpdateView, self).get_context_data(*args, **kwargs)
+		context["submit-btn"] = "Update Product"
+		return context			
+
+
+
 class SellerProductListView(SellerAccountMixin, ListView):
 	model = Product
 	queryset = Product.objects.all()
@@ -68,7 +87,18 @@ class SellerProductListView(SellerAccountMixin, ListView):
 
 	def get_context_data(self, *args, **kwargs):
 		context = super(SellerProductListView, self).get_context_data(*args, **kwargs)
-		return context		
+		return context	
+
+
+
+class SellerInventoryListView(SellerAccountMixin, ListView):
+	model = Product
+	queryset = Product.objects.all()
+	template_name = "sellers/inventory_list_view.html"
+
+	def get_context_data(self, *args, **kwargs):
+		context = super(SellerInventoryListView, self).get_context_data(*args, **kwargs)
+		return context			
 
 
 

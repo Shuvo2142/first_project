@@ -2,6 +2,12 @@
 
 {% block content %}
 	
-	{{ object.title }}
+	<h3>Product Name: {{ object.title }}</h3>
+	<h3>Description: {{ object.description }}</h3>
+	<h3>Price: {{ object.price }}</h3>
+	<h3>Sale Price: {{ object.sale_price }}</h3>
+	<h3>Inventory: {{ object.inventory }}</h3>
+	<h3>Category: {{ object.categories }}</h3>
+	<a href="{% url 'product_update_view' %}">Edit</a>
 
 {% endblock %}
