@@ -20,7 +20,7 @@
           		<td><a href='{{ object.get_absolute_url }}'>{{ object.title }}</a></td>
               <td>{{ object.categories }}</td>
           		<td>{{ object.price }}</td>
-              <td><a href='#'>Delete</a></td>
+              <td><a href="{{ object.product_update }}">Edit</a> | <a href='{{ object.delete }}'> Delete</a></td>
               <!-- <select name='item' class='form-control item_select'> -->
               <td><input id="submit-btn" type='submit' value='Add' class='btn btn-default submit-btn'/><input style="display: none" name="item" value="{{ object.id }}"/><input class='form-control' type='number' name="qty" value='1'/></td>
               <!-- <td><a href='{% url "cart" %}'></a>Add</td> -->

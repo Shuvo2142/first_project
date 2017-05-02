@@ -49,13 +49,21 @@ class Product(models.Model):
 			return self.price
 
 	def get_absolute_url(self):
-		return reverse("product_detail_view", kwargs={"pk": self.pk})
+		return reverse("product_detail_view", kwargs={"pk": self.pk})	
 
 	def add_to_cart(self):
 		return "%s?item=%s&qty=1" %(reverse("cart"), self.id)	
 
 	def remove_from_cart(self):
-		return "%s?item=%s&qty=1&delete=True" %(reverse("cart"), self.id)				
+		return "%s?item=%s&qty=1&delete=True" %(reverse("cart"), self.id)
+
+	def product_update(self):
+		return reverse("product_update_view", kwargs={"pk": self.pk})
+
+	# def delete(self):
+	# 	# return "%s?id=%s&delete=True" %(reverse("product_list_view"), self.id)
+	# 	instance = Product.objects.get(pk=self.id)
+	# 	instance.delete()						
 
 
 
@@ -70,7 +78,10 @@ class Category(models.Model):
 		return self.title
 
 	def get_absolute_url(self):
-		return reverse("category_detail", kwargs={"pk": self.pk})	
+		return reverse("category_detail_view", kwargs={"pk": self.pk})
+
+	def category_update(self):
+		return reverse("category_update_view", kwargs={"pk": self.pk})			
 
 	# def get_absolute_url(self):
 	# 	return reverse("category_detail", kwargs={"slug": self.slug})	

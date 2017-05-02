@@ -8,6 +8,7 @@
 	<h3>Sale Price: {{ object.sale_price }}</h3>
 	<h3>Inventory: {{ object.inventory }}</h3>
 	<h3>Category: {{ object.categories }}</h3>
-	<a href="{% url 'product_update_view' %}">Edit</a>
+	
+	<a href="{{ object.product_update }}">Edit</a>
 
 {% endblock %}
