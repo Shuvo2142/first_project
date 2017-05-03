@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'registration',
     # my apps
-    'billing',
+    # 'billing',
     'products',
     'sellers',
     'sellingcarts',
