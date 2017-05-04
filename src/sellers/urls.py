@@ -21,10 +21,10 @@ from .views import SellerDashboard
 urlpatterns = [
     url(r'^$', SellerDashboard.as_view(), name='dashboard'),
     url(r'^categories/$', CategoryListView.as_view(), name='category_list_view'),
+    # url(r'^categories/(?P<slug>[\w-]+)/$', CategoryDetailView.as_view(), name='category_slug_view'),
     url(r'^categories/(?P<pk>\d+)/$', CategoryDetailView.as_view(), name='category_detail_view'),
     url(r'^products/$', SellerProductListView.as_view(), name='product_list_view'),
     url(r'^products/create/$', ProductCreateView.as_view(), name='product_create_view'),
-    # url(r'^products/update/$', ProductUpdateView.as_view(), name='product_update_view'),
     url(r'^products/(?P<pk>\d+)/$', ProductDetailView.as_view(), name='product_detail_view'),
     url(r'^products/(?P<pk>\d+)/update/$', ProductUpdateView.as_view(), name='product_update_view'),
     url(r'^products/(?P<pk>\d+)/delete/$', ProductDeactiveView.as_view(), name='product_delete_view'),

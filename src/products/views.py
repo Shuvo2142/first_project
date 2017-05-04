@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 
 # Create your views here. 
 
-from projectinventory.mixins import LoginRequiredMixin
+from projectinventory.mixins import LoginRequiredMixin, MultiSlugMixin
 from sellers.mixins import SellerAccountMixin
 
 # from projectinventory.mixins import LoginRequiredMixin
@@ -30,7 +30,7 @@ class CategoryCreateView(SellerAccountMixin, CreateView):
 
 
 
-class CategorytUpdateView(SellerAccountMixin, UpdateView):
+class CategorytUpdateView(SellerAccountMixin, MultiSlugMixin, UpdateView):
     model = Category
     template_name = "categories/category_update_form.html"
     form_class = CategoryModelForm
@@ -64,18 +64,14 @@ class CategoryDeactiveView(SellerAccountMixin, UpdateView):
 class CategoryListView(SellerAccountMixin, ListView):
     model = Category
     queryset = Category.objects.all()
-    template_name = "categories/category_list.html"
+    template_name = "categories/category_list.html"     
 
 
-class CategoryDetailView(DetailView):
+
+class CategoryDetailView(MultiSlugMixin, DetailView):
     model = Category
-    template_name = "categories/category_detail.html"
+    template_name = "categories/category_detail.html"                 
 
-
-# next time for slug
-# def get_object(self, *args, **kwargs):
-# 	obj = super(CategoryDetailView, self).get_object(*args, **kwargs)
-# 	return obj
 
 
 class ProductCreateView(SellerAccountMixin, CreateView):

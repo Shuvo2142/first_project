@@ -94,6 +94,9 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse("category_detail_view", kwargs={"pk": self.pk})
 
+    # def get_absolute_url(self):
+    #     return reverse("category_detail_view", kwargs={"slug": self.slug})    
+
     def category_update(self):
         return reverse("category_update_view", kwargs={"pk": self.pk})
 
