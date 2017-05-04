@@ -15,7 +15,7 @@
                 	<tr>
                   		<td>{{ object.id }}</td>
                   		<td><a href='{{ object.get_absolute_url }}'>{{ object.title }}</a></td>
-                      <td><a href="{{ object.category_update }}">Edit</a> | <a href='#'>Delete</a></td>
+                      <td><a href="{{ object.category_update }}">Edit</a> | <a href='{{ object.category_delete }}'>Delete</a></td>
                 	</tr>
                 </tbody>	 
                 {% endfor %}	             	

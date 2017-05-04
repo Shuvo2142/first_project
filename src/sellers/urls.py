@@ -13,6 +13,7 @@ from products.views import (ProductCreateView,
                             ProductDeactiveView,
                             CategorytUpdateView,
                             CategoryDetailView,
+                            CategoryDeactiveView,
                             )
 
 from .views import SellerDashboard
@@ -29,5 +30,6 @@ urlpatterns = [
     url(r'^products/(?P<pk>\d+)/delete/$', ProductDeactiveView.as_view(), name='product_delete_view'),
     url(r'^categories/create/$', CategoryCreateView.as_view(), name='category_create_view'),
     url(r'^categories/(?P<pk>\d+)/update/$', CategorytUpdateView.as_view(), name='category_update_view'),
+    url(r'^categories/(?P<pk>\d+)/delete/$', CategoryDeactiveView.as_view(), name='category_delete_view'),
     url(r'^inventory/$', SellerInventoryListView.as_view(), name='inventory_list_view'),
 ]

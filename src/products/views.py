@@ -29,8 +29,9 @@ class CategoryCreateView(SellerAccountMixin, CreateView):
         return valid_data
 
 
+
 class CategorytUpdateView(SellerAccountMixin, UpdateView):
-    model = Product
+    model = Category
     template_name = "categories/category_update_form.html"
     form_class = CategoryModelForm
     success_url = "/seller/categories/"
@@ -48,7 +49,19 @@ class CategorytUpdateView(SellerAccountMixin, UpdateView):
         return context
 
 
-class CategoryListView(ListView):
+
+class CategoryDeactiveView(SellerAccountMixin, UpdateView):
+    model = Category
+
+    def get(self, request, *args, **kwargs):
+        category = self.get_object()
+        category.active = False
+        category.save()
+        return redirect(reverse('category_list_view'))
+
+
+
+class CategoryListView(SellerAccountMixin, ListView):
     model = Category
     queryset = Category.objects.all()
     template_name = "categories/category_list.html"
@@ -97,6 +110,7 @@ class ProductUpdateView(SellerAccountMixin, UpdateView):
         return context
 
 
+
 class ProductDeactiveView(SellerAccountMixin, UpdateView):
     model = Product
 
@@ -105,6 +119,7 @@ class ProductDeactiveView(SellerAccountMixin, UpdateView):
         product.active = False
         product.save()
         return redirect(reverse('product_list_view'))
+
 
 
 class SellerProductListView(SellerAccountMixin, ListView):
@@ -116,25 +131,6 @@ class SellerProductListView(SellerAccountMixin, ListView):
         context = super(SellerProductListView, self).get_context_data(*args, **kwargs)
         return context
 
-        # def get(self, request, *args, **kwargs):
-        # 	delete_product = request.GET.get("delete")
-        # 	product_instance = self.queryset[0]
-        # 	if delete_product:
-        # 		queryset.delete()
-
-
-# ******to delete items
-# def remove_items(request):
-#     if request.method == 'POST':
-#         form = ProdutModelForm()
-#         products = Product.objects.all()
-#         pro_id = int(request.POST.get('pro_id'))  
-#         pro = Product.objects.get(id=pro_id)       
-#         pro.delete()
-#         return render_to_response('product_list.html', {
-#             'form':form, 'products':products, 
-#             }, RequestContext(request))		
-
 
 
 class SellerInventoryListView(SellerAccountMixin, ListView):
@@ -145,6 +141,7 @@ class SellerInventoryListView(SellerAccountMixin, ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(SellerInventoryListView, self).get_context_data(*args, **kwargs)
         return context
+
 
 
 class ProductListView(ListView):
@@ -159,6 +156,7 @@ class ProductListView(ListView):
         # 	product_pk = self.kwargs.get("pk")
 
         # def post(self, request, *args, **kwargs):
+        
 
 
 class ProductDetailView(DetailView):

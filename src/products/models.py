@@ -66,12 +66,27 @@ class Product(models.Model):
         # 	instance.delete()
 
 
+class CategoryQuerySet(models.query.QuerySet):
+    def active(self):
+        return self.filter(active=True)
+
+
+class CategoryManager(models.Manager):
+    def get_queryset(self):
+        return CategoryQuerySet(self.model, using=self._db)
+
+    def all(self, *args, **kwargs):
+        return self.get_queryset().active()
+
+
 class Category(models.Model):
     title = models.CharField(max_length=120, unique=True)
     slug = models.SlugField(unique=False)
     description = models.TextField(null=True, blank=True)
     active = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    objects = CategoryManager()
 
     def __str__(self):
         return self.title
@@ -84,6 +99,9 @@ class Category(models.Model):
 
         # def get_absolute_url(self):
         # 	return reverse("category_detail", kwargs={"slug": self.slug})
+
+    def category_delete(self):
+        return reverse("category_delete_view", kwargs={"pk": self.pk})
 
 # Product Images
 
